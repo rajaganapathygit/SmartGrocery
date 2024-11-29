@@ -1,0 +1,433 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #8ddfc0;
+  padding-top: 60px;
+  margin: 0;
+}
+
+
+.header .logo {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.header a{
+  padding: 10px;
+}
+
+.navibar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Add a margin-top to the body content to prevent it from hiding under the navbar */
+
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4CAF50; /* Or any color you prefer */
+  z-index: 1000; /* To ensure it stays on top of other elements */
+  padding: 5px 0;
+}
+
+.navibar a:hover {
+  color: #ffe135;
+}
+
+/* Home Section */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10%;
+  margin: 10px;
+  color: rgb(253, 253, 253);
+}
+
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.text-content {
+  flex: 1;
+  color: rgb(97, 177, 72);  /* White text for better contrast */
+  padding: 20px;
+  text-align: left;
+}
+
+
+  .text-content h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  
+
+  .text-content .tagline {
+    font-size: 1.5rem;
+    color: rgb(97, 177, 72);  /* Light pink tagline */
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .text-content .btn-order  {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #78b787; /* Soft orange */
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .text-content .btn-order:hover {
+    background-color: #64f486; /* Darker orange on hover */
+    color: #fff; /* White text on hover */
+  }
+
+
+.text-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Categories Section */
+.categories, .featured-products {
+  text-align: center;
+  padding: 20px;
+}
+
+.categories h2, .featured-products h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.category-container, .product-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for mobile responsiveness */
+  justify-content: center; /* Centers items horizontally */
+  gap: 20px; /* Adds spacing between the cards */
+}
+
+.category-card, .product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px; /* Fixed width for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.category-card:hover, .product-card:hover {
+  transform: scale(1.05);
+}
+
+.category-card img, .product-card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.category-card p, .product-card p {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+.product-card span {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+.product-info {
+  text-align: center;
+}
+
+.product-info p {
+  font-weight: bold;
+  margin: 5px 0;
+  height: 20px; /* Ensures all product names occupy the same space */
+  line-height: 20px; /* Vertically aligns single-line text */
+}
+
+.product-info span {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.btn-box {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-box:hover {
+  background-color: #45a049;
+}
+
+
+/* Contact Section */
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 50px 10%;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+  .contact-form {
+    text-align: left;
+  }
+  .contact-form h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+.contact-details p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column; /* Stack all fields vertically */
+  gap: 20px; /* Space between fields */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row; 
+  gap: 20px;/* Label above input */
+}
+
+
+  .form-group label {
+    width: 30%; /* Fixed width for labels */
+    text-align: center; /* Align label text to the right */
+    font-size: 16px;
+    color: #333;
+  }
+
+.contact-form .form-row input, .contact-form .form-row textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: left;
+  gap: 10px;
+}
+
+.contact-form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+/* General Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #ffffff;/* White text */
+}
+
+/* Dark Mode for Header */
+body.dark-mode header {
+  background-color: #1e1e1e;
+}
+
+/* Dark Mode for Buttons */
+body.dark-mode button {
+  background-color: #444444; /* Darker button background */
+  color: #ffffff;
+}
+body.dark-mode h2{
+  color: #ffffff;
+}
+body.dark-mode button:hover {
+  background-color: #ff6347; /* Brighter hover effect */
+}
+
+
+
+body.dark-mode .text-content button {
+  background-color: #333333;
+  color: #ffffff;
+}
+body.dark-mode .tagline, body.dark-mode .text-content{
+  color:  #4CAF50;
+}
+body.dark-mode .category-card, body.dark-mode .product-card{
+  color: white;
+}
+
+body.dark-mode .text-content button:hover {
+  background-color: #ff2b2b; /* Bright hover */
+}
+body.dark-mode .contact-form label{
+  color: white;
+}
+
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .navibar {
+    display: none;  /* Hide nav links on mobile */
+}
+.navibar.active {
+    display: block; /* Show nav links when active */
+}
+.hamburger {
+    display: block;
+}
+  .home-container {
+    flex-direction: column-reverse;
+  }
+
+  .text-content {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .text-content h1 {
+    font-size: 36px;
+  }
+
+  .text-content .tagline {
+    font-size: 20px;
+  }
+
+  .text-content p {
+    font-size: 16px;
+  }
+  .category-container, .product-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; /* Adjust gap for smaller screens */
+  }
+
+  .categories h2, .featured-products h2 {
+    font-size: 28px; /* Smaller font size for heading on mobile */
+  }
+
+  .category-card, .product-card{
+    width: 90%; /* Full width of the container with some margin */
+    max-width: 300px; /* Restrict width for larger devices within mobile view */
+    margin: 0 auto; /* Centers each card */
+  }
+
+  .category-card img, .product-card img {
+    height: 120px; /* Adjust image size for smaller screens */
+  }
+
+  .category-card p, .product-card p {
+    font-size: 16px; /* Adjust text size */
+  }
+  .contact-section {
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+    gap: 20px;
+    padding: 20px 5%;
+  }
+
+  .contact-form h2{
+    font-size: 24px; /* Adjust heading size */
+    margin-bottom: 15px;
+  }
+
+  /* Arrange contact info details in a row */
+  .contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .contact-details p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+
+  .contact-info,
+  .contact-form {
+    text-align: center; /* Center-align for better readability */
+  }
+
+  .form-group {
+    flex-direction: column; /* Stack label and input vertically for mobile */
+    align-items: flex-start; /* Align label and input to the left */
+  }
+
+  .form-group label {
+    width: auto; /* Label adjusts to content size */
+    text-align: center; /* Align text to the left */
+  }
+
+  .contact-form button {
+    width: 100%; /* Button spans full width for mobile */
+  }
+}

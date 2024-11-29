@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop by Category</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #8ddfc0;
+    }
+
+    .categories {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .categories h2, .products h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .category-container, .products-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .category-card, .product-card{
+      width: 150px;
+      cursor: pointer;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.2s;
+    }
+
+    .category-card img, .product-card img{
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .category-card p, .product-card p{
+      margin: 10px 0 0 10px;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    .category-card:hover, .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .products {
+      display: none;
+      padding: 20px;
+    }
+    .product-card button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .products.active {
+      display: block;
+    }
+/* General Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #ffffff;/* White text */
+}
+/* Dark Mode for Buttons */
+body.dark-mode button {
+  background-color: #444444; /* Darker button background */
+  color: #ffffff;
+}
+body.dark-mode h2{
+  color: #ffffff;
+}
+body.dark-mode button:hover {
+  background-color: #ff6347; /* Brighter hover effect */
+}
+body.dark-mode .category-card{
+  color: white;
+}
+
+body.dark-mode .text-content button:hover {
+  background-color: #ff2b2b; /* Bright hover */
+}
+body.dark-mode .category-card p,  body.dark-mode .product-card{
+  color: #121212;
+}
+
+  </style>
+</head>
+<body>
+  <section class="categories" id="Categories">
+    <h2>Shop by Category</h2>
+    <div class="category-container">
+      <div class="category-card" data-category="fruits">
+        <img src="Images/Fruits.jpg" alt="Fruits">
+        <p>Fruits</p>
+      </div>
+      <div class="category-card" data-category="vegetables">
+        <img src="Images/Vegetables.jpg" alt="Vegetables">
+        <p>Vegetables</p>
+      </div>
+      <div class="category-card" data-category="dairy">
+        <img src="Images/Dairy.jpg" alt="Dairy">
+        <p>Dairy</p>
+      </div>
+      <div class="category-card" data-category="snacks">
+        <img src="Images/Snacks.jpg" alt="Snacks">
+        <p>Snacks</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <h2>Products</h2>
+    <div class="products-container" id="products-container">
+      <!-- Products will be dynamically inserted here -->
+    </div>
+  </section>
+
+  <script>
+    // Products Data
+    const productsData = {
+        fruits: [
+            { name: "Apple", price: 150, image: "Images/Apples.jpg" },
+            { name: "Banana", price: 130, image: "Images/banana.jpg" },
+            { name: "Orange", price: 120, image: "Images/orange.jpg" },
+            { name: "Grapes", price: 140, image: "Images/grapes.jpg" }
+        ],
+        vegetables: [
+            { name: "Carrot", price: 60, image: "Images/carrot.jpeg" },
+            { name: "Tomato", price: 100, image: "Images/tomato.webp" },
+            { name: "Onion", price: 150, image: "Images/onion.jpeg" },
+            { name: "Broccoli", price: 130, image: "Images/broccoli.jpeg" }
+        ],
+        dairy: [
+            { name: "Milk", price: 70, image: "Images/Milk.jpg" },
+            { name: "Cheese", price: 100, image: "Images/Cheese.webp" },
+            { name: "Butter", price: 80, image: "Images/Butter.avif" },
+            { name: "Yogurt", price: 60, image: "Images/Yogurt.webp" }
+        ],
+        snacks: [
+            { name: "Chips", price: 30, image: "Images/Chips.jpg" },
+            { name: "Cookies", price: 60, image: "Images/Cookies.jpg" },
+            { name: "Popcorn", price: 80, image: "Images/Popcorn.jpg" },
+            { name: "Chocolate", price: 100, image: "Images/chocolates.jpg" }
+        ]
+    };
+
+    // References to elements
+    const productsSection = document.getElementById('products');
+    const productsContainer = document.getElementById('products-container');
+
+    // Display Products for Selected Category
+    function displayProducts(category) {
+        productsContainer.innerHTML = ''; // Clear existing products
+        const products = productsData[category]; // Get products by category
+
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>₹${product.price.toFixed(2)}</p>
+                <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+            `;
+            productsContainer.appendChild(productCard);
+        });
+
+        // Show the products section
+        productsSection.classList.add('active');
+    }
+
+    // Handle Category Selection
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const category = card.getAttribute('data-category'); // Get category
+            history.pushState({ category }, '', `?category=${category}`); // Update URL
+            displayProducts(category); // Display products
+        });
+    });
+
+    // Load Products from URL Query
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    if (category && productsData[category]) {
+        displayProducts(category);
+    }
+
+    // Add Product to Cart and Redirect to Budget Page
+    function addToCart(productName, productPrice) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; // Load cart
+        const existingProduct = cart.find(item => item.name === productName);
+
+        if (existingProduct) {
+            existingProduct.quantity++; // Increase quantity if product exists
+        } else {
+            cart.push({ name: productName, price: productPrice, quantity: 1 }); // Add new product
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save cart
+        window.location.href = "budget.html"; // Redirect to budget.html
+    }
+
+    // Dark Mode Toggle Script
+const toggleButton = document.getElementById('darkModeToggle');
+
+// Check localStorage for user's preference
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️ Light Mode'; // Update button text
+}
+
+// Toggle dark mode on button click
+toggleButton.addEventListener('click', () => {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    toggleButton.textContent = isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
+
+    // Save preference in localStorage
+    if (isDarkMode) {
+        localStorage.setItem('dark-mode', 'enabled');
+    } else {
+        localStorage.setItem('dark-mode', 'disabled');
+    }
+});
+</script>
+
+  
+</body>
+</html>

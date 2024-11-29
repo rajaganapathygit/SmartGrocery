@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Shop</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>  
+    <header class="header">
+        <a href="#" class="logo">RAJA BAZZAR</a>
+        <!-- Hamburger Menu Icon (Visible on Mobile Only) -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <!-- Navigation Bar -->
+        <nav class="navibar">
+            <a href="#" style="--i:1" class="active">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="budget.html">Cart</a> <!-- Link to Budget Page -->
+            <a href="#Contact" style="--i:4">Contact</a>
+            <a href="#darkModeToggle" id="darkModeToggle">
+                🌙
+            </a>
+        </nav>
+    </header>
+
+ <!-- Home Section -->
+<section class="home" id="Home">
+    <div class="home-container">
+      <div class="text-content">
+        <h1>Farm Fresh Groceries</h1>
+        <p class="tagline">Freshness Delivered</p>
+        <p>Shop now for organic produce!</p>
+        <button class="btn-order" onclick="window.location.href='categories.html'">Shop Now</button>
+
+      </div>
+      <div class="image-content">
+        <img src="Images/Grocery.jpg" alt="Groceries">
+      </div>
+    </div>
+  </section>
+  
+  
+
+<!-- Categories Section -->
+<section class="categories" id="Categories">
+    <h2>Shop by Category</h2>
+    <div class="category-container">
+        <div class="category-card">
+            <img src="Images/Fruits.jpg" alt="Fruits">
+            <p>Fruits</p>
+        </div>
+        <div class="category-card">
+            <img src="Images/vegetables.jpg" alt="Vegetables">
+            <p>Vegetables</p>
+        </div>
+        <div class="category-card">
+            <img src="Images/Dairy.jpg" alt="Dairy">
+            <p>Dairy</p>
+        </div>
+        <div class="category-card">
+            <img src="Images/Snacks.jpg" alt="Snacks">
+            <p>Snacks</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Featured Products Section -->
+<section class="featured-products" id="Featured">
+    <h2>Today's Offer</h2>
+    <div class="product-container">
+        <div class="product-card" data-id="1">
+            <img src="Images/Apples.jpg" alt="Apples">
+            <div class="product-info">
+                <p>Fresh Apples</p>
+                <span>₹120/kg</span> 
+                <button class="btn-box add-to-cart" data-id="1" data-name="Fresh Apples" data-price="2.49" data-image="Images/Apples.jpg">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-id="2">
+            <img src="Images/Milk.jpg" alt="Milk">
+            <div class="product-info">
+                <p>Organic Milk</p>
+                <span>₹65/liter</span>
+                <button class="btn-box add-to-cart" data-id="2" data-name="Organic Milk" data-price="2.49" data-image="Milk.jpg">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-id="3">
+            <img src="Images/Bread.jpg" alt="Bread">
+            <div class="product-info">
+                <p>Wholegrain Bread</p>
+                <span>₹25</span>
+                <button class="btn-box add-to-cart" data-id="3" data-name="Wholegrain Bread" data-price="1.99" data-image="Bread.jpg">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-id="4">
+            <img src="Images/Chips.jpg" alt="Chips">
+            <div class="product-info">
+                <p>Potato Chips</p>
+                <span>₹30</span>
+                <button class="btn-box add-to-cart" data-id="4" data-name="Potato Chips" data-price="1.49" data-image="Chips.jpg">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="Contact" class="contact-section">
+    <div class="contact-info">
+      <h2>Customer Support</h2>
+      <p><strong>Phone:</strong> +91 9034439765</p>
+      <p><strong>Email:</strong> rajabazzar@groceryshop.com</p>
+      <p><strong>Address:</strong> 123 Main Street,Bangalore, India</p>
+    </div>
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" rows="2" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" rows="3" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+    <script src="script.js"></script>
+</body>
+</html>
